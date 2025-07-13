@@ -1,5 +1,5 @@
 if True:
-    print("Привет, мир!")       # TODO проверка трюка с туду
+    print("Привет, мир!")
 
 
 a = 5
@@ -10,3 +10,11 @@ a = a - b
 
 print("a = ", a)
 print("b = ", b)
+
+boo1 = True
+boo2 = False
+
+print("boo1 = ", boo1)
+print("boo2 = ", boo2)
+
+
