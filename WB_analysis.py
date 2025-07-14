@@ -37,7 +37,6 @@ df.columns = ['position', 'promo_position', 'created_at', 'query', 'name']
 df['diff'] = df['position'] - df['promo_position']
 df['hour'] = df['created_at'].dt.hour
 df['date'] = df['created_at'].dt.date
-
 df1 = df[df['name'] == 'Лонгслив женский оверсайз с длинным рукавом']
 
 plt.plot(df1['position']);
