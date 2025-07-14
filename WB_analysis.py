@@ -43,7 +43,6 @@ df1 = df[df['name'] == 'Лонгслив женский оверсайз с дл
 plt.plot(df1['position']);
 print(df)
 
-
 pd.pivot_table(
     df1,
     index='query',
