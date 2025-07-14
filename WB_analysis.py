@@ -31,7 +31,6 @@ for query in query_list:
     print(f"query: {query} page: {page}")
 
 df = pd.DataFrame(arr)
-
 df.columns = ['position', 'promo_position', 'created_at', 'query', 'name']
 
 df['diff'] = df['position'] - df['promo_position']
