@@ -41,7 +41,6 @@ df['date'] = df['created_at'].dt.date
 df1 = df[df['name'] == 'Лонгслив женский оверсайз с длинным рукавом']
 
 plt.plot(df1['position']);
-print(df)
 
 
 pd.pivot_table(
