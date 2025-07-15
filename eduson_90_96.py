@@ -119,7 +119,6 @@ def decipher(text):
         result += abc[int(i)]
 
     return result
-
 # print(decipher("1 4 2 7 8 22 6 17"))
 
 """
