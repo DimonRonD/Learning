@@ -71,4 +71,14 @@ def test(text, ending):
             position = position + text[position + len(ending):].find(ending) + len(ending)
             print("New", position)
 
-print(solution("abcabcabc",  "bc" ))
+#print(solution("abcabcabc",  "bc" ))
+
+def square_digits(num):
+    tmp = list(tuple(str(num)))
+    result = ""
+    for i in tmp:
+        result += str(int(i) ** 2)
+
+    return int(result)
+
+print(square_digits(0))
