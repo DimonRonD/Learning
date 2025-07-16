@@ -63,15 +63,11 @@ def solution(text, ending):
 def test(text, ending):
     position = text.find(ending)
     if text.count(ending) > 1:
-        print(text.count(ending))
         for i in range(text.count(ending)-1):
-            print("Old", position)
-            print(text[position + len(ending):])
-            print("Finded", text[position + len(ending):].find(ending))
             position = position + text[position + len(ending):].find(ending) + len(ending)
-            print("New", position)
 
-#print(solution("abcabcabc",  "bc" ))
+
+print(solution("abcabcabc",  "bc" ))
 
 def square_digits(num):
     tmp = list(tuple(str(num)))
@@ -81,4 +77,4 @@ def square_digits(num):
 
     return int(result)
 
-print(square_digits(0))
+#print(square_digits(0))
