@@ -68,8 +68,28 @@ def congr(player):
     else:
         exit(0)
 
+# def enemy_turn(board, player, enemy):
+#     enemy_move = False
+#     player_flag_x = 0
+#     player_flag_y = 0
+#
+#     for i in range(3):
+#         for j in range(3):
+#             if board[i][j] == player:
+#                 player_flag_x += 1
+#             if board[j][i] == player:
+#                 player_flag_y += 1
+#
+#     if player_flag_x == 2:
 
-# Инициируем переменные
+
+
+
+
+
+
+
+        # Инициируем переменные
 def main():
     board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     game_over = False
