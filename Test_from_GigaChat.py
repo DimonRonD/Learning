@@ -49,7 +49,6 @@ def greet_user():
     # Выводим приветствие в консоль
     print(greeting_message)
 
-
 # Демонстрационный запуск функции
 if __name__ == "__main__":
     greet_user()
