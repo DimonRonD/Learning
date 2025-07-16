@@ -1,15 +1,25 @@
 """
 Игра "Крестики-нолики в терминале
 """
+from colorama import Fore, Back, Style
 
-def draw_board(board):
+def draw_board(board, player):
     for i in range(3):
-        print("|".join(board[i]))
-        print("------")
+        print(Fore.BLUE, "-------------")
+        print(Fore.BLUE, "|", end="")
+        for j in range(3):
+            if board[i][j] == " ":
+                print(Fore.BLUE, board[i][j], end="")
+            elif board[j][i] == player:
+                print(Fore.RED, board[i][j], end="")
+            print(Fore.BLUE, "|", end="")
+        print("")
+    print(Fore.BLUE, "-------------", end="")
+    print(Fore.WHITE, "")
 
 
 def initialize_player():
-    player = input("Enter figure: ")
+    player = input("Введите ваш символ: ")
     return player
 
 def new_move(board, player, x, y):
@@ -20,22 +30,21 @@ def new_move(board, player, x, y):
         return False
 
 def ask_move(board, player):
-    x, y = input("Enter x, y over space: ").split()
+    print(Fore.LIGHTWHITE_EX, "Введите x, y через проблем в диапазоне (1..3): ", end="")
+    x, y = input().split()
     x, y = int(x) - 1, int(y) - 1
     if (0 <= x < 3) and (0 <= y < 3) and board[x][y] == " ":
         return x, y
     else:
-        print("Клетка занята, введите другие координаты")
+        print(Fore.RED, "Клетка занята, введите другие координаты")
         return ask_move(board, player)
 
 def make_move(board, player):
     x, y = ask_move(board, player)
     new_move(board, player, x, y)
-    draw_board(board)
+    draw_board(board, player)
     game_over = check_game_over(board, player)
-    print(game_over)
     if game_over:
-        print("Inside IF", game_over)
         congr(player)
 
 
@@ -52,7 +61,7 @@ def check_game_over(board, player):
     return False
 
 def congr(player):
-    print(f"Игрок {player} победил!")
+    print(Fore.WHITE, f"Игрок {player} победил!")
     tmp = input("Хотите сыграть ещё раз? (yes/no) ")
     if tmp == "yes":
         main()
