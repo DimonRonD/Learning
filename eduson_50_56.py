@@ -87,3 +87,132 @@ def sum_n_dimensional_vectors(vectors):
 def lim_max(nums, limit):
     candidates = [num for num in nums if num < limit]
     return max(candidates) if candidates else -1
+
+
+"""
+39
+Напишите функцию check_list, которая принимает на вход переменную var и проверяет, является ли она списком.
+"""
+def check_list(var):
+    return isinstance(var, list)
+
+"""
+40
+Напишите функцию get_value_by_index, которая принимает на вход список ref_list и индекс index. 
+Функция должна вернуть значение списка ref_list по указанному индексу, если список ref_list не равен None, 
+является списком (а не другим типом данных) и индекс не выходит за пределы длины списка. 
+В любом ином случае верните значение None.
+"""
+
+def get_value_by_index(ref_list, index):
+    if ref_list is None:
+        return None
+    if not isinstance(ref_list, list):
+        return None
+    if len(ref_list) < index:
+        return None
+    return ref_list[index]
+
+"""
+41
+Напишите функцию list_reorder, которая принимает на вход список списков list_of_lists. 
+Функция должна изменить структуру списка, так чтобы элементы из вложенных списков 
+стали элементами одного общего списка.
+"""
+
+def list_reorder(list_of_lists):
+    return [el for subarr in list_of_lists for el in subarr]
+
+a = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+# print(list_reorder(a))
+
+"""
+41
+Напишите функцию list_insert, которая принимает на вход список ref_list, индекс start, число num, и количество 
+повторений rep. Функция должна вставить число num в список ref_list начиная с позиции start, повторяя его rep раз.
+"""
+def list_insert(list_of_lists, start, num, rep):
+    if start >= len(list_of_lists):
+        return -1
+    for i in range(rep):
+        list_of_lists.insert(start, num)
+    return list_of_lists
+
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# print(list_insert(b, 5, 0, 3))
+
+"""
+43
+Напишите функцию generate_values, которая принимает на вход начальное значение start и конечное значение end. 
+Функция должна вернуть список значений в заданном числовом интервале от start до end (включительно).
+"""
+def generate_values(start, end):
+    return [i for i in range(start, end + 1)]
+
+"""
+44
+Даны два словаря dict1 и dict2. Напишите функцию merge_dicts, которая объединит эти два словаря в один с 
+помощью оператора объединения и вернет результат.
+"""
+def merge_dicts(dict1, dict2):
+    return dict1|dict2
+
+"""
+45
+Даны два словаря dict1 и dict2. Напишите функцию merge_dicts, которая объединит эти два словаря. 
+В начале результирующего словаря должны идти ключи dict1. Значения с общими ключами должны стать элементами 
+общего списка в результирующем словаре. Функция merge_dicts должна вернуть результирующий словарь.
+"""
+
+def merge_dict(dict1, dict2):
+    result_dict = dict1.copy()
+    for key, value in dict2.items():
+        if key in result_dict:
+            if isinstance(result_dict[key], list):
+                result_dict[key].append(value)
+            else:
+                result_dict[key] = [result_dict[key], value]
+        else:
+            result_dict[key] = value
+
+    return result_dict
+
+"""
+46
+Напишите функцию count_elements, которая принимает на вход коллекцию (список, кортеж, множество или строку) 
+и возвращает словарь. В нем ключами должны быть уникальные элементы коллекции, а значениями - количество их 
+вхождений в данную коллекцию. В результате верните получивышийся словарь.
+"""
+def count_elements(collection):
+    dict = {k: 0 for k in collection}
+    for el in collection:
+        dict[el] += 1
+    return dict
+
+"""
+47
+Напишите функцию get_value, которая принимает на вход словарь data и ключ key. 
+Функция должна возвращать значение из словаря data, соответствующее переданному ключу key. 
+Если ключ отсутствует в словаре, функция должна возвращать строку "Key not found".
+"""
+def get_value(data, key):
+    return data[key] if key in data else "Key not found"
+
+"""
+48
+Напишите функцию sort_dict, которая принимает на вход словарь d, тип сортировки type (keywise или valuewise) 
+и порядок сортировки order (asc или desc). Функция должна возвращать отсортированный словарь по ключам или значениям, 
+в зависимости от переданных параметров.
+"""
+def sort_dict(d, type, order):
+    ord = False
+    if order == "desc":
+        ord = True
+    if type == "valuewise":
+        return dict(sorted(d.items(), key=lambda item: item[1], reverse=ord))
+    else:
+        return sorted(d.items(), reverse=ord)
