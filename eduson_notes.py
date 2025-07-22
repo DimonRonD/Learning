@@ -1,5 +1,8 @@
 import os
 from colorama import Fore, Back, Style
+import tkinter as tk
+
+
 
 # Создаем файл с заметкой
 def build_note(note_text, note_name):
@@ -71,30 +74,75 @@ def print_note(note_name):
 #     pass
 
 def menu():
-    print(Fore.BLUE, "Меню действий: ")
-    print(Fore.BLUE, "1. Создать заметку")
-    print(Fore.BLUE, "2. Список заметок")
-    print(Fore.BLUE, "3. Просмотр заметки")
-    #print(Fore.BLUE, "4. Редактирование заметки")
-    print(Fore.BLUE, "5. Удаление заметки")
-    print(Fore.BLUE, "0. Выход из программы")
+    text_menu = """
+    Меню действий:
+    1. Создать заметку
+    2. Список заметок"
+    3. Просмотр заметки"
+    4. Редактирование заметки"
+    5. Удаление заметки"
+    0. Выход из программы
+    """
+    frame = tk.Frame(window, height=221, bg=LIGHT_GRAY)
+    frame.pack(expand=True, fill="both")
+
+    total_label = tk.Label(frame, text=text_menu, anchor=tk.E, bg=LIGHT_GRAY,
+                               fg=LABEL_COLOR, padx=24, font=SMALL_FONT_STYLE)
+    # print(Fore.BLUE, "Меню действий: ")
+    # print(Fore.BLUE, "1. Создать заметку")
+    # print(Fore.BLUE, "2. Список заметок")
+    # print(Fore.BLUE, "3. Просмотр заметки")
+    # #print(Fore.BLUE, "4. Редактирование заметки")
+    # print(Fore.BLUE, "5. Удаление заметки")
+    # print(Fore.BLUE, "0. Выход из программы")
 
 def main():
+    text_menu = """
+        Меню действий:
+        1. Создать заметку
+        2. Список заметок"
+        3. Просмотр заметки"
+        4. Редактирование заметки"
+        5. Удаление заметки"
+        0. Выход из программы
+        """
+    frame = tk.Frame(window, height=300, width=500, bg=LIGHT_GRAY, border=5)
+    frame.pack(expand=True, fill="both")
 
-    while True:
-        menu()
-        menu_selector = input("Введите номер действия: ")
-        if menu_selector == "1":
-            create_note()
-        elif menu_selector == "2":
-            display_notes()
-        elif menu_selector == "3":
-            read_note()
-        # elif menu_selector == "4":
-        #     edit_note()
-        elif menu_selector == "5":
-            delete_note()
-        elif menu_selector == "0":
-            exit()
+    total_label = tk.Label(frame, text=text_menu, anchor=tk.NW, bg=LIGHT_GRAY,
+                           fg=LABEL_COLOR, padx=24, font=SMALL_FONT_STYLE)
+    total_label.pack(expand=True, fill='both')
 
+    window.mainloop()
+    # while True:
+    #     menu()
+    #     menu_selector = input("Введите номер действия: ")
+    #     if menu_selector == "1":
+    #         create_note()
+    #     elif menu_selector == "2":
+    #         display_notes()
+    #     elif menu_selector == "3":
+    #         read_note()
+    #     # elif menu_selector == "4":
+    #     #     edit_note()
+    #     elif menu_selector == "5":
+    #         delete_note()
+    #     elif menu_selector == "0":
+    #         exit()
+
+window = tk.Tk()
+window.geometry('400x800')
+window.resizable(False, False)
+window.title('Notes')
+
+LARGE_FONT_STYLE = ("Arial", 40, "bold")
+SMALL_FONT_STYLE = ("Arial", 16)
+DIGITS_FONT_STYLE = ("Arial", 24, "bold")
+DEFAULT_FONT_STYLE = ("Arial", 20)
+
+OFF_WHITE = "#F8FAFF"
+WHITE = "#FFFFFF"
+LIGHT_BLUE = "#CCEDFF"
+LIGHT_GRAY = "#F5F5F5"
+LABEL_COLOR = "#25265E"
 main()
