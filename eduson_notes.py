@@ -111,7 +111,7 @@ def main():
 
     total_label = tk.Label(frame, text=text_menu, anchor=tk.NW, bg=LIGHT_GRAY,
                            fg=LABEL_COLOR, padx=24, font=SMALL_FONT_STYLE)
-    total_label.pack(expand=True, fill='both')
+     total_label.pack(expand=True, fill='both')
 
     window.mainloop()
     # while True:
