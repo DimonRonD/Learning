@@ -8,7 +8,20 @@
 - Если важность равна или меньше, то смотрим совпадение времени. Если время свободно, добавляем запись.
 - Если важность равна или меньше и время занято, то пишем, что не удалось добавить запись, так как время занято.
 """
+def split_notes(remainder):
+    tmp = remainder.split(',')
+    splitted_notes = []
+    for el in tmp:
+        splitted_notes.append(repack_note(el.strip()))
+    return splitted_notes
 
+
+def repack_note(note):
+    *base, _, start_time, _, end_time, importance = note.split(' ')
+    base = ' '.join(base)
+    return [base, start_time, end_time, importance]
 
 remainder = "Полить цветы с 09:30 до 10:00 обычное, приготовить завтрак и позавтракать с 11:00 до 12:00 важное, пойти на тренировку с 17:30 до 19:30 важное"
 new_remi = "Почитать книгу с 10:00 до 12:00 обычное"
+
+print(split_notes(remainder))
