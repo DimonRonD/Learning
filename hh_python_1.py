@@ -10,9 +10,7 @@
 """
 def split_notes(remainder):
     tmp = remainder.split(',')
-    splitted_notes = []
-    for el in tmp:
-        splitted_notes.append(repack_note(el.strip()))
+    splitted_notes = [repack_note(el.strip()) for el in tmp]
     return splitted_notes
 
 
