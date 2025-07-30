@@ -28,5 +28,5 @@ sportsmens = """
 """
 
 sportsmens_list = split_list(sportsmens)
-sorted_pairs = sorted(sportsmens_list, key=lambda x: (x[1], x[0]))
+sorted_pairs = sorted(sportsmens_list, key=lambda x: (-x[1], x[0]), reverse=False)
 print(sorted_pairs)
