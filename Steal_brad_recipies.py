@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # fetch the page content
-url = 'https://lafoy.ru/indeyka-v-slivochnom-souse-recepty-3759'
+url = 'https://lafoy.ru/sup-iz-svinyh-rebryshek-recepty-3723'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -13,8 +13,8 @@ bred_names = soup.find_all('h2', class_='tm8 post__title')
 bred_ingridients = soup.find_all('p', attrs={'class': 'tm11 post__text'})
 
 counter = 0
-biggers = ["11.", "800."] #, "8.", "12.", "15.", "8."]
-giggers = ["110.", "220."] #, "11."]
+biggers = ["3.", "4.", "5.", "11.", "12."] #, "8."]
+giggers = ["8.", "220."] #, "11."]
 exclusion = "400."
 for name in bred_names:
     if not name.text.strip().startswith(exclusion):
